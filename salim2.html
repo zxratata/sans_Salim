@@ -3,8 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Stage - Epitech</title>
-    </head>
+    <title>Portfolio Stage - Epitech 🌸</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Arrière-plan net */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://cdn.anisearch.fr/images/character/screen/128/128412/full/659101.webp');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        /* Voile sombre pour la lisibilité */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 10, 12, 0.6);
+            z-index: -1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Cadre central sans aucun flou */
+        .container {
+            max-width: 900px;
+            width: 90%;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(15, 15, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid #00b4d8;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00b4d8;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(0, 180, 216, 0.5);
+        }
+
+        header p {
+            font-style: italic;
+            color: #94a3b8;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: #00b4d8;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .gif-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 180, 216, 0.3);
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gif-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(0, 180, 216, 0.6);
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-height: 350px;
+            object-fit: contain;
+            background: #000;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #00b4d8;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateX(8px);
+            background: rgba(0, 180, 216, 0.15);
+            border-left: 4px solid #00f5d4;
+            box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+            color: #fff;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card:hover h3 {
+            color: #00f5d4;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.2);
+            color: #00b4d8;
+            border: 1px solid #00b4d8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 8px;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: #00b4d8;
+            color: #000;
+            box-shadow: 0 0 10px #00b4d8;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+    </style>
+</head>
 <body>
 
     <div class="background"></div>
@@ -12,43 +205,48 @@
 
     <div class="container">
         <header>
-            <h1>Rapport de Stage - Epitech</h1>
-            <p>Dépôt de Groupe • Année Universitaire 2026</p>
+            <h1>Rapport de Stage - Epitech 🌸💙</h1>
+            <p>Dépôt de Groupe • Année Universitaire 2026 🇯🇵</p>
         </header>
 
         <section id="introduction">
-            <h2>01. Introduction</h2>
-            <p>Bienvenue sur le portfolio de notre projet de stage. Dans le cadre du cursus Epitech, cette page centralise les objectifs, les technologies utilisées et les réalisations techniques conçues au cours de notre période en entreprise.</p>
+            <h2><span>01.</span> Introduction 🔰</h2>
+            <p>Bienvenue sur le portfolio de notre projet de stage. Dans le cadre du cursus Epitech, cette page centralise les objectifs, les technologies utilisées et les réalisations techniques conçues au cours de notre période en entreprise. ⛩️</p>
+            
+            <div class="gif-container">
+                <!-- Intégration du GIF de Michael Jackson Moonwalk -->
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTDug9ztLpioW0n_9-lYIsd5REL05uCY3pEb8zUZXT-A&s=10"
+            </div>
         </section>
 
         <section id="objectifs">
-            <h2>02. Objectifs du Projet</h2>
+            <h2><span>02.</span> Objectifs du Projet 🎯</h2>
             <div class="grid">
                 <div class="card">
-                    <h3>Développement</h3>
-                    <p>Conception et architecture d'applications robustes en respectant les normes de l'industrie.</p>
+                    <h3>💻 Développement</h3>
+                    <p>Conception et architecture d'applications robustes en respectant les normes de l'industrie. 🛠️</p>
                 </div>
                 <div class="card">
-                    <h3>Méthodologie</h3>
-                    <p>Application des cycles Agiles (Scrum) et gestion des livrables en équipe.</p>
+                    <h3>🔄 Méthodologie</h3>
+                    <p>Application des cycles Agiles (Scrum) et gestion des livrables en équipe. 🤝</p>
                 </div>
             </div>
         </section>
 
         <section id="technologies">
-            <h2>03. Stack Technique</h2>
-            <p>Aperçu des outils et langages clés manipulés durant cette expérience :</p>
+            <h2><span>03.</span> Stack Technique 🛠️🐉</h2>
+            <p>Passez votre souris sur les technologies pour les activer :</p>
             <div>
-                <span class="tag">Docker</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">C++</span>
-                <span class="tag">Python</span>
-                <span class="tag">CI/CD</span>
+                <span class="tag">Docker 🐳</span>
+                <span class="tag">TypeScript ⌨️</span>
+                <span class="tag">C++ 👾</span>
+                <span class="tag">Python 🐍</span>
+                <span class="tag">CI/CD 🚀</span>
             </div>
         </section>
 
         <footer>
-            <p>&copy; 2026 - Groupe Epitech. Tous droits réservés.</p>
+            <p>&copy; 2026 - Groupe Epitech. Tous droits réservés. 🍙</p>
         </footer>
     </div>
 
