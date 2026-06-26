@@ -1,29 +1,293 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mon Portfolio - [Carlier]</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenue sur le site de Maxime !</title>
+    <style>
+        /* --- Couleurs & Thème (Inspiré du LOSC & Epitech) --- */
+        :root {
+            --primary: #E21A22; /* Rouge LOSC */
+            --secondary: #11224D; /* Bleu Marine */
+            --epitech: #1D2D50; /* Bleu foncé Epitech */
+            --light: #F4F6F9;
+            --text: #333333;
+            --white: #ffffff;
+        }
+
+        /* --- Style Général --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('02d0e43af3_minecraft-dog-in-a-boat-relaxing-4k-live-wallpaper-for-gamers.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: var(--text);
+        }
+
+        header {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 2.5rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+        }
+
+        header h1 {
+            margin: 0 0 1rem 0;
+            font-size: 2.5rem;
+        }
+
+        .back-link {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid var(--light);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background-color: var(--white);
+            color: var(--secondary);
+        }
+
+        /* --- Conteneur Principal --- */
+        main {
+            max-width: 850px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* --- Cartes / Sections --- */
+        section {
+            background: rgba(255, 255, 255, 0.96);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-top: 5px solid var(--secondary);
+        }
+
+        /* Section Epitech avec sa couleur de bordure bleu tech distinctive */
+        section.stage-section {
+            border-top-color: #0080FF;
+        }
+
+        h2 {
+            color: var(--secondary);
+            margin-top: 0;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+            /* Flexbox aligne verticalement le texte et le logo du titre */
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        /* Style pour intégrer proprement le logo à côté du titre h2 */
+        .title-logo {
+            height: 35px; /* Ajuste la hauteur pour correspondre à la taille du texte */
+            width: auto;
+            border-radius: 4px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        /* --- Disposition Flexbox pour le contenu avec image --- */
+        .stage-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .passion-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .passion-item:last-child {
+            margin-bottom: 0;
+            padding-top: 2rem;
+            border-top: 1px dashed #ddd;
+        }
+
+        @media(min-width: 600px) {
+            .stage-container, .passion-item {
+                flex-direction: row;
+                align-items: flex-start;
+            }
+        }
+
+        .logo-display {
+            max-width: 140px;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-display:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Badges de compétences --- */
+        .skills-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #eef2f7;
+            color: var(--secondary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid #d1d9e6;
+        }
+
+        /* --- Liens & Listes --- */
+        a.btn-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        a.btn-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .project-list li {
+            padding: 0.8rem;
+            background: var(--light);
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .project-list a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .project-list a:hover {
+            color: var(--primary);
+        }
+
+        /* --- Pied de page --- */
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background-color: var(--secondary);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--white);
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-<header>
-<h1> </strong>Bienvenue sur le site de Maxime !</strong></h1>
-<p><a href="index.html">← Retour à l'accueil</a></p>
-</header>
-<main>
----- Ta présentation --
-<section>
-<h2>Mes passions</h2>
-<p>En tant que passioné de foot je suis fan du LOSC c'est mon club de coeur depuis petit , le LOSC a remporté 4 Ligue 1, 6 coupe de France, 5 Ligue 2 et un trophé des Champions.<a href="https://www.losc.fr/">  (Site du LOSC) </p>
-<p><img src="https://znaki.fm/static/content/thumbs/388x218/f/8f/sj3yco---c1034x582x50px50p--8d76b2e188e680851752e1bc694708ff.webp" alt="Description"></p>
-<h3>Mes projets</h3>
-<p>Devenir developpeur de jeu vidéo</p>
-</section>
-</main>
-<footer>
-<p>© 2026 - [Carlier] | Fait avec passion</p>
-</footer>
-<script src="script.js"></script>
+
+    <header>
+        <h1>Bienvenue sur le site de Maxime !</h1>
+        <a href="#" class="back-link">← Retour à l'accueil</a>
+    </header>
+
+    <main>
+        <section class="stage-section">
+            <h2>
+                Mon Stage de Seconde à Epitech Lille
+                <!-- Le logo est placé directement ici à côté du titre -->
+                <img src="Epitech.jpg" alt="Logo Epitech" class="title-logo">
+            </h2>
+            
+            <div class="stage-container">
+                <div>
+                    <p>J'ai eu l'opportunité de réaliser mon stage de seconde au sein de l'école <strong>Epitech Lille</strong>, et mon avis est <strong>particulièrement positif</strong> ! Ce fut une expérience incroyable qui m'a conforté dans mes choix d'orientation.</p>
+                    
+                    <p>Durant ces deux semaines, j'ai suivi un emploi du temps très complet et diversifié. Toutes les activités proposées étaient à la fois <strong>extrêmement amusantes et éducatives</strong>. L'apprentissage se faisait de manière ludique, ce qui m'a permis d'assimiler des concepts complexes tout en m'amusant.</p>
+
+                    <p>Lors de la <strong>première semaine</strong>, après une installation des postes, nous avons pu créer notre propre Web Portfolio et nous essayer à l'algorithmique, à l'électronique avec Arduino, ainsi qu'à des ateliers originaux comme "Poké Poireau" et "Atelier Canard". Nous avons aussi participé à une journée d'enquête passionnante mêlant OSINT, Geoguessr et CTF, sans oublier des conférences captivantes sur la Cybersécurité et l'Intelligence Artificielle.</p>
+
+                    <p>La <strong>seconde semaine</strong> a été tout aussi riche avec la création de jeux classiques comme un Morpion IA et un jeu Snake en JavaScript. Les témoignages des étudiants et les présentations d'orientation nous ont permis de mieux comprendre les métiers de l'informatique, tandis que des interventions sur l'IA (comme celle de Google) et la cybersécurité avec Stormshield ont élargi notre vision de la tech. Nous avons terminé en beauté par la finalisation de notre portfolio et un forum de clôture.</p>
+                </div>
+            </div>
+            
+            <p><strong>Ce que ce stage m'a apporté :</strong></p>
+            <div class="skills-tags">
+                <span class="tag"> Développement Web & JavaScript</span>
+                <span class="tag"> Intelligence Artificielle & Morpion IA</span>
+                <span class="tag"> Cybersécurité, OSINT & CTF</span>
+                <span class="tag"> Création de Jeux (Snake)</span>
+                <span class="tag"> Électronique & Arduino</span>
+                <span class="tag"> Travail d'Équipe & Autonomie</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mes passions</h2>
+            
+            <!-- Passion 1 : LOSC -->
+            <div class="passion-item">
+                <img src="https://static.vecteezy.com/system/resources/previews/028/100/348/original/losc-lille-club-logo-symbol-ligue-1-football-french-abstract-design-illustration-with-red-background-free-vector.jpg" alt="Logo LOSC" class="logo-display">
+                <div>
+                    <p>En tant que passionné de foot, je suis fan du <strong>LOSC</strong>. C'est mon club de cœur depuis tout petit ! Le LOSC a remporté 4 Ligue 1, 6 Coupe de France, 5 Ligue 2 et un Trophée des Champions.</p>
+                    <p>
+                        <a href="https://www.losc.fr/" class="btn-link">Site du LOSC →</a>
+                    </p> 
+                </div>
+            </div>
+
+            <!-- Passion 2 : Minecraft -->
+            <div class="passion-item">
+                <img src="https://cdn.worldvectorlogo.com/logos/minecraft-launcher.svg" alt="Logo Minecraft" class="logo-display">
+                <div>
+                    <p>Je suis également un grand amateur de <strong>Minecraft</strong>. Ce jeu vidéo de type "sandbox" (bac à sable) permet de libérer toute sa créativité. Dans un monde infini entièrement composé de blocs pixelisés, on peut récolter des ressources, survivre face à des monstres ou encore bâtir des structures géantes, seul ou entre amis. C'est un univers passionnant qui développe aussi la logique, notamment grâce à des mécaniques comme la redstone !</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mes projets</h2>
+            <ul class="project-list">
+                <li><a href="#">Devenir développeur de jeux vidéo</a></li>
+                <li><a href="#">Terminer Minecraft à 100 % en débloquant tous les succès</a></li>
+                <li><a href="#">Voyager à travers le monde entier pour découvrir de nouvelles cultures</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - [Carlier] | Fait avec passion</p>
+    </footer>
+
 </body>
 </html>
